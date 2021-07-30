@@ -144,6 +144,17 @@ class _PriceState extends State<Price> with SingleTickerProviderStateMixin {
       }
     }
     if (x.length == 3) {
+      if (x[1].contains('Quận')) {
+        c[1] = "d " + x[1].split("Quận ")[1];
+      } else if (x[1].contains('Huyện')) {
+        c[1] = "d " + x[1].split("Huyện ")[1];
+      } else if (x[1].contains('Thành phố')) {
+        c[1] = "d " + x[1].split("Thành phố ")[1];
+      } else if (x[1].contains('Thị xã')) {
+        c[1] = "d " + x[1].split("Thị xã ")[1];
+      } else {
+        c[1] = "d " + x[1];
+      }
       if (x[2].contains('Phường')) {
         c[2] = x[2].split("Phường ")[1];
       } else if (x[2].contains('Xã')) {
@@ -477,9 +488,9 @@ class _PriceState extends State<Price> with SingleTickerProviderStateMixin {
                           child: Text(
                             "Top Best Price",
                             style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            ),
+                                fontSize: 25,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -789,7 +800,7 @@ class _PriceState extends State<Price> with SingleTickerProviderStateMixin {
                           Radius.circular(5),
                         ),
                       ),
-                      width: 90,
+                      width: 85,
                       padding: EdgeInsets.all(
                         4,
                       ),

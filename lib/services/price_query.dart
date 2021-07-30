@@ -163,7 +163,7 @@ class PriceQuery {
     //   values[i] = double.parse((values[i]).toStringAsFixed(2));
     // }
     List<String> finalKeys = [
-      '09/2020',
+      // '09/2020',
       '10/2020',
       '11/2020',
       '12/2020',
@@ -172,14 +172,17 @@ class PriceQuery {
       '03/2021',
       '04/2021',
       '05/2021',
-      '06/2021'
+      '06/2021',
+      '07/2021'
     ];
     List<double> finalValues = List.filled(10, 0);
     for (int i = 0; i < keys.length; i++) {
       // List x=keys[i].split("/");
       // int y=int.parse(x[0])+int.parse(x[1])*100;
       // finalKeys[compare.indexOf(y)]=keys[i];
-      finalValues[finalKeys.indexOf(keys[i])] = values[keys.indexOf(keys[i])];
+      if (finalKeys.contains(keys[i])) {
+        finalValues[finalKeys.indexOf(keys[i])] = values[keys.indexOf(keys[i])];
+      }
     }
     for (int i = 0; i < finalValues.length; i++) {
       if (finalValues[i] == 0) {

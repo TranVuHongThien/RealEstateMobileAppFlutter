@@ -483,7 +483,7 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: CustomText(
-                        msg: "Select the number of bath rooms",
+                        msg: "Select the number of bathrooms",
                         size: 18,
                         color: Colors.black.withOpacity(0.5),
                         weight: FontWeight.w500,
@@ -856,7 +856,7 @@ class _HomePageState extends State<HomePage> {
                 height: 50.0,
                 child: OutlinedButton(
                     child: Text(
-                      'Predict price',
+                      'Predict',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,

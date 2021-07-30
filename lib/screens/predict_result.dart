@@ -298,17 +298,6 @@ class _PredictResultState extends State<PredictResult> {
           );
         });
   }
-
-  _launchURL(String homepage) async {
-    // ignore: unnecessary_brace_in_string_interps
-    String url = 'https://$homepage';
-    print(url);
-    try {
-      await launch(url, forceWebView: true);
-    } catch (e) {
-      throw 'Could not launch $url';
-    }
-  }
 }
 
 class ChartData {

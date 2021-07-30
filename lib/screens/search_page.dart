@@ -69,6 +69,17 @@ class _SearchState extends State<Search> {
       }
     }
     if (x.length == 3) {
+      if (x[1].contains('Quận')) {
+        c[1] = "d " + x[1].split("Quận ")[1];
+      } else if (x[1].contains('Huyện')) {
+        c[1] = "d " + x[1].split("Huyện ")[1];
+      } else if (x[1].contains('Thành phố')) {
+        c[1] = "d " + x[1].split("Thành phố ")[1];
+      } else if (x[1].contains('Thị xã')) {
+        c[1] = "d " + x[1].split("Thị xã ")[1];
+      } else {
+        c[1] = "d " + x[1];
+      }
       if (x[2].contains('Phường')) {
         c[2] = x[2].split("Phường ")[1];
       } else if (x[2].contains('Xã')) {
@@ -550,19 +561,21 @@ class _SearchState extends State<Search> {
                                 dvhcvn.Entity entity = data.level3;
                                 entity ??= data.level2;
                                 entity ??= data.level1;
-                                if (data.level1 == null|| categorylst.isEmpty|| websitelst.isEmpty) {
+                                if (data.level1 == null ||
+                                    categorylst.isEmpty ||
+                                    websitelst.isEmpty) {
                                   return showDialog(
                                       context: context,
                                       builder: (_) {
                                         return Dialog(
                                           child: Padding(
-                                            child: Text('Missing input information'),
+                                            child: Text(
+                                                'Missing input information'),
                                             padding: const EdgeInsets.all(8.0),
                                           ),
                                         );
                                       });
-                                }                  
-                                else {
+                                } else {
                                   addressSplit(entity.toString(), location);
                                   query = SearchQuery(
                                     region: location[0],
@@ -930,7 +943,7 @@ class _SearchState extends State<Search> {
                           Radius.circular(5),
                         ),
                       ),
-                      width: 90,
+                      width: 85,
                       padding: EdgeInsets.all(
                         4,
                       ),
